@@ -23,10 +23,12 @@ const numIdenticalPairs = nums => {
             next++
         }
         
-        if (next === nums.length - 1){
+        if (next === nums.length){
             index++
             next = index + 1
         } 
+
+        if(next > nums.length) break
     }
     return counter
 }
