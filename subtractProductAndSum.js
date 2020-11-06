@@ -10,7 +10,7 @@
 // Divide input by ten and round down
 // Return product minus sum
 
-
+//  ----- Solution 1 -----
 const subtractProductAndSum = (n) => {
     let sum = 0;
     let prod = 1;
@@ -25,5 +25,13 @@ const subtractProductAndSum = (n) => {
     return prod - sum
 }
 
+// ----- Solution 2 -----
+const subtractProductAndSum = (n) => {
+    // Array.from creates a shallow-copied Array instance from an array-like or iterable object
+    const digits = Array.from(String(n), Number)
+    const sum = digits.reduce((a,b) => a+b)
+    const product = digits.reduce((a,b) => a*b)
+    return product - sum
+}
 
-console.log(subtractProductAndSum(234))
+console.log(subtractProductAndSum())
