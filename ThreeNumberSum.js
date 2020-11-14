@@ -34,29 +34,43 @@ const threeNumberSum1 = (array, targetSum) => {
 // console.log(threeNumberSum(newArray, target))
 
 // SOLUTION 2
-// Time complexity = O(n^2) | Space complexity = O(n)
+// Time complexity = O(n^2) | Space complexity = O(n) | Where n is the lenght of the input array.
 
 const threeNumberSum = (array, targetSum) => {
+    // sort the array in descending order
     const sortedArray = array.sort((a,b) => a-b)
+    // Define a variable to hold arrays of triplets
     let triplets = []
 
+    // Create a for loop that excludes the last index of the array, as this last index will be the pointer for the right variable
     for(let i = 0; i < array.length - 2; i++) {
+        // Declare your left variable as 1 index ahead of the current index i
         let left = i + 1
+        // Declare your right variable as the last index in the array
         let right = array.length - 1
 
+        // Create a while loop that will not allow our opposite sides to collide ir run past each other
         while(left < right){
+            // calculate the current sum using all your variables established
             const currentSum = sortedArray[i] + sortedArray[left] + sortedArray[right]
+            // Check whether the current sum of the variables matches the target sum of the function input
             if(currentSum === targetSum) {
+                // Push the 3 variables into an array and place that array within the result variable
                 triplets.push([sortedArray[i], sortedArray[left], sortedArray[right]])
+                // Increase the left side as we found a match
                 left ++
+                // Decrease the right side as we found a match
                 right --
+            // If the current sum is smaller than the target sum, we can move our left variable to the right to redeclare to larger number
             } else if(currentSum < targetSum){
                 left++
+            // If the current sum is greater than the target sum, we can move our right variable to the left to redeclare to a smaller number
             } else if(currentSum > targetSum){
                 right --
             }
         }
     }
+    // Return the triples variable containing the arrays within.
     return triplets
 }
 
