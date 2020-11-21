@@ -8,11 +8,18 @@
 // If there are multiple peaks in the array select the one with the most length
 
 const longestPeak = (array) => {
+    // Create a variable for the longest peak length
     let longestPeakLength = 0
+    // Create a starting point excluding the 0 index because it cannot be a peak
     let i = 1
-    while(i < array.length - 1) {
+
+    // While our starting point is less than the index of the array.............
+    while (i < array.length - 1) {
+        // Declare the peak variable
         const isPeak = array[i - 1] < array[i] && array[i + 1] < array[i]
+        // If peak is false...
         if(!isPeak){
+            // Increase i by 1 integer
             i++
             continue
         }
@@ -33,6 +40,5 @@ const longestPeak = (array) => {
     }
     return longestPeakLength;
 }
-
 const array = [1,2,3,3,4,0,10,6,5,-1,-3,2,3]
 console.log(longestPeak(array))
