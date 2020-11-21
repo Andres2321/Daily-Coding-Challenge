@@ -24,17 +24,26 @@ const longestPeak = (array) => {
             continue
         }
 
+        // declare the index 2 spots to the left of the peak
         let leftIdx = i - 2
+        // while your left index is greater than 0 and while the left index of the array is less than the array with the left index plus 
+        // 1 index to the right
         while(leftIdx >= 0 && array[leftIdx] < array[leftIdx + 1]){
+            // decrease the left index by 1
             leftIdx--
         }
 
+        // declare the index 2 spots to the right of the peak
         let rightIdx = i + 2
+        // while the right index is less than the array length and array with the right index is less than array with right index - 1
         while(rightIdx < array.length && array[rightIdx] < array[rightIdx - 1]){
+            // move the right index 1 to the right
             rightIdx++
         }
 
+        // declare the current peak length by substracting the left and right index minus 1
         const currentPeakLength = rightIdx - leftIdx - 1
+        // Finds the max peak length
         longestPeakLength = Math.max(longestPeakLength, currentPeakLength)
         i = rightIdx
     }
