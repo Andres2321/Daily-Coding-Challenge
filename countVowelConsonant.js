@@ -4,15 +4,24 @@
 function countVowelConsonant(string){
 const splitString = string.split('')
 let result = 0
-
 function vowels(){
     result = result + 1
 }
 splitString.forEach(letter => {
     console.log(typeof letter)
     switch(letter){
-        case 'a',
-case 'e':
+        case 'a': vowels()
+        break;
+        case 'e':
+            vowels()
+            break; 
+        case 'i':
+            vowels()
+            break;
+        case 'o':
+            vowels()
+            break;
+        case 'u':
             vowels()
             break;
         default:
@@ -26,3 +35,19 @@ console.log(result)
 
 const string= 'abcde'
 countVowelConsonant(string);
+
+
+// ALternate solution
+
+function countLetters(string){
+    const splitL = string.split('')
+    let sum = 0
+    splitL.reduce((acc,val) =>{
+        if( val === 'a' || val === 'e' || val === 'i' || val === 'o' || val === 'u'){
+            sum += 1
+        } else {
+            sum +=2
+        }
+    })
+    return sum
+}
