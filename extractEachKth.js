@@ -3,4 +3,4 @@ function extractEachKth(nums, index){
 }
 
 const array = [1,2,3,4,5,6,7,8,9,10]
-extractEachKth(array, 3)
+extractEachKth(array, 5)
